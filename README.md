@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TUF Wall Calendar
+
+An interactive wall calendar built with Next.js 14, TypeScript, and Framer Motion.
+
+Live Demo: 
+
+---
+
+## Features
+
+- Wall calendar aesthetic with monthly hero image and ring bindings
+- Date range selection with start, end, and in-between highlights
+- Notes panel — attach color-tagged notes to selected dates, with edit and delete
+- 3D wall split animation when a date is selected
+- Light, Dark, and Sepia theme switching
+- Year dropdown for quick navigation
+- Indian holidays marked on the calendar
+- Notes persist via localStorage
+- Fully responsive — side-by-side on desktop, stacked on mobile
+
+---
+
+## Tech Stack
+
+Next.js 14, TypeScript, Tailwind CSS, Framer Motion, date-fns, Lucide React
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/Bhaviraj2004/tuf-calendar.git
+cd tuf-calendar
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+src/
+├── app/             # Next.js app router
+├── components/      # Calendar, Grid, DayCell, NotesPanel, etc.
+├── hooks/           # useDateRange, useNotes, useTheme
+├── utils/           # Date helpers, Indian holidays
+├── data/            # Month images
+└── types/           # Shared TypeScript types
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Custom hooks over Redux** — state is local to one component tree, no global store needed
+- **maxWidth animation** — avoids layout thrash caused by animating width directly
+- **next/dynamic with ssr: false** — calendar uses localStorage, SSR would cause hydration mismatch
+- **date-fns** — tree-shakeable, fully typed, works well with immutable React state
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Or connect your GitHub repo on vercel.com for auto deployments.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Built for the takeUforward SWE Summer Internship assessment.
