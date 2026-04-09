@@ -2,7 +2,9 @@
 
 An interactive wall calendar built with Next.js 14, TypeScript, and Framer Motion.
 
-Live Demo: 
+Live Demo: https://tuf-calendar-ggp8-5560mji6c-bhavirajs-projects.vercel.app
+
+GitHub: https://github.com/Bhaviraj2004/tuf-calendar
 
 ---
 
@@ -61,6 +63,13 @@ src/
 - **date-fns** — tree-shakeable, fully typed, works well with immutable React state
 
 ---
+
+## Deployment
+
+```bash
+npm i -g vercel
+vercel
+```
 
 Or connect your GitHub repo on vercel.com for auto deployments.
 
